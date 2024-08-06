@@ -1,7 +1,12 @@
 <script>
 import { store } from '../store';
 import axios from 'axios';
+import DetailCard from './DetailCard.vue';
+import DetailCard from './DetailCard.vue';
 export default {
+    components: {
+        DetailCard
+    },
     data() {
         return{
             store,
@@ -23,16 +28,7 @@ export default {
     <div>
         <div class="container">
             <div class="row-list">
-                <div class="col-20" v-for="card in store.cardsList" :key="card.id">
-                    <div class="card">
-                        <img :src="card.card_images[0].image_url" alt="">
-                        <div class="card-body">
-                            <h6>
-                                {{ card.name }}
-                            </h6>
-                        </div>
-                    </div>
-                </div>
+                <DetailCard v-for="card in store.cardsList" :key="card.id" :card="card"/>
             </div>
         </div>
     </div>
