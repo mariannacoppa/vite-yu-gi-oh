@@ -17,6 +17,7 @@ export default {
 <template>
     <div>
         <div class="container">
+            
             <AppLoader v-if="store.loading"/>
             <div class="row-list" v-else>
                 <DetailCard v-for="card in store.cardsList" :key="card.id" :card="card"/>

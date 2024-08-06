@@ -2,13 +2,15 @@
 import AppHeader from './components/AppHeader.vue';
 import CardsList from './components/CardsList.vue';
 import DetailCard from './components/DetailCard.vue';
+import FilterCards from './components/FilterCards.vue';
 import { store } from './store';
 import axios from 'axios';
 export default {
   components: {
     AppHeader,
     CardsList,
-    DetailCard
+    DetailCard,
+    FilterCards
   },
   created() {
         this.getCards();
@@ -34,6 +36,7 @@ export default {
 <template>
   <AppHeader />
   <main>
+    <FilterCards />
     <CardsList />
     <DetailCard />
   </main>
