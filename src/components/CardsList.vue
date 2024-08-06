@@ -1,8 +1,7 @@
 <script>
-import { store } from '../store';
-import axios from 'axios';
 import DetailCard from './DetailCard.vue';
 import AppLoader from './AppLoader.vue';
+import { store } from '../store';
 export default {
     components: {
         DetailCard,
@@ -11,17 +10,6 @@ export default {
     data() {
         return{
             store,
-        }
-    },
-    created() {
-        this.getCards()
-    },
-    methods: {
-        getCards() {
-            axios.get(store.apiUrl).then((response) => {
-                store.cardsList = response.data.data;
-                store.loading = false;
-            });
         }
     }
 }
