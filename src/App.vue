@@ -1,7 +1,6 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import CardsList from './components/CardsList.vue';
-import DetailCard from './components/DetailCard.vue';
 import FilterCards from './components/FilterCards.vue';
 import { store } from './store';
 import axios from 'axios';
@@ -9,7 +8,6 @@ export default {
   components: {
     AppHeader,
     CardsList,
-    DetailCard,
     FilterCards
   },
   created() {
@@ -19,7 +17,7 @@ export default {
     methods: {
         getCards() {
           if (store.archetype_search !== '') {
-            axios.get(`${store.apiUrl}&archetype=${store.archetype_search}`).then((response) => {
+            axios.get(`${store.apiUrl}?archetype=${store.archetype_search}`).then((response) => {
                 store.cardsList = response.data.data;
                 store.loading = false;
             });
@@ -33,7 +31,7 @@ export default {
         },
         getArchetypes() {
             axios.get(store.apiArchetypesUrl).then((response) => {
-              for (let i = 0; i < 10; i++) {
+              for (let i = 0; i < 20; i++) {
                 store.archetypesList.push(response.data[i]);
               }
             });
@@ -46,7 +44,7 @@ export default {
   <main>
     <FilterCards @filter_cards="getCards()"/>
     <CardsList />
-    <DetailCard />
+    <!-- <DetailCard /> -->
   </main>
 </template>
 <style lang="scss">
