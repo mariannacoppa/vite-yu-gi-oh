@@ -5,13 +5,11 @@ export default {
 </script>
 <template>
     <header>
-        Yu-Gi-Oh
+        <h1 class="ms-5 text-white py-3">Yu-Gi-Oh</h1>
     </header>
 </template>
 <style lang="scss">
-    header {
-        background-color: black;
-        color: white;
-        padding: 20px 0;
-    }
+header {
+    background-color: black;
+}
 </style>
