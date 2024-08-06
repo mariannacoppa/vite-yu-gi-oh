@@ -2,9 +2,11 @@
 import { store } from '../store';
 import axios from 'axios';
 import DetailCard from './DetailCard.vue';
+import AppLoader from './AppLoader.vue';
 export default {
     components: {
-        DetailCard
+        DetailCard,
+        AppLoader
     },
     data() {
         return{
@@ -18,6 +20,7 @@ export default {
         getCards() {
             axios.get(store.apiUrl).then((response) => {
                 store.cardsList = response.data.data;
+                store.loading = false;
             });
         }
     }
@@ -26,7 +29,8 @@ export default {
 <template>
     <div>
         <div class="container">
-            <div class="row-list">
+            <AppLoader v-if="store.loading"/>
+            <div class="row-list" v-else>
                 <DetailCard v-for="card in store.cardsList" :key="card.id" :card="card"/>
             </div>
         </div>
