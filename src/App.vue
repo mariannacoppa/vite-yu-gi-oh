@@ -18,10 +18,18 @@ export default {
     },
     methods: {
         getCards() {
+          if (store.archetype_search !== '') {
+            axios.get(`${store.apiUrl}&archetype=${store.archetype_search}`).then((response) => {
+                store.cardsList = response.data.data;
+                store.loading = false;
+            });
+          }
+          else {
             axios.get(store.apiUrl).then((response) => {
                 store.cardsList = response.data.data;
                 store.loading = false;
             });
+          }
         },
         getArchetypes() {
             axios.get(store.apiArchetypesUrl).then((response) => {
@@ -36,7 +44,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <FilterCards />
+    <FilterCards @filter_cards="getCards()"/>
     <CardsList />
     <DetailCard />
   </main>

@@ -10,7 +10,7 @@ export default {
 </script>
 <template>
     <div>
-        <select name="" id="" class="select-control p-2 ms-5">
+        <select name="" id="" class="select-control p-2 ms-5" @change="$emit('filter_cards')" v-model="store.archetype_search">
             <option value="">Seleziona Archetipo</option>
             <option :value="archetype.archetype_name" v-for="(archetype, index) in store.archetypesList">{{ archetype.archetype_name }}</option>
         </select>
