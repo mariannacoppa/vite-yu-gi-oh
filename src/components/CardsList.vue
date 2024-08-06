@@ -8,10 +8,14 @@ export default {
         }
     },
     created() {
-
+        this.getCards()
     },
     methods: {
-
+        getCards() {
+            axios.get(store.apiUrl).then((response) => {
+                store.cardsList = response.data.data;
+            });
+        }
     }
 }
 </script>
