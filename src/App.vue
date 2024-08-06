@@ -11,11 +11,11 @@ export default {
 }
 </script>
 <template>
-  <div>
-    <AppHeader />
+  <AppHeader />
+  <main>
     <CardsList />
     <DetailCard />
-  </div>
+  </main>
 </template>
 <style lang="scss">
   @import './styles/generals.scss'
