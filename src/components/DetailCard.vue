@@ -6,18 +6,18 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="col-20" >
+    <div class="col-20">
         <div class="card p-1">
-            <img :src="card.card_images[0].image_url" alt="">
+            <img :src="card?.card_images[0].image_url" alt="">
             <div class="card-body">
                 <h6>
-                    {{ card.name }}
+                    {{ card?.name }}
                 </h6>
             </div>
         </div>
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .row-list {
     display: flex;
     flex-wrap: wrap;

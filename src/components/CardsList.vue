@@ -2,7 +2,6 @@
 import { store } from '../store';
 import axios from 'axios';
 import DetailCard from './DetailCard.vue';
-import DetailCard from './DetailCard.vue';
 export default {
     components: {
         DetailCard
@@ -34,19 +33,19 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
-    .row-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+.row-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.col-20 {
+    width: calc(100% / 5);
+}
+.card {
+    background-color: burlywood;
+    margin: 10px;
+    img {
+        max-width: 100%;
     }
-    .col-20 {
-        width: calc(100% / 5);
-    }
-    .card {
-        background-color: burlywood;
-        margin: 10px;
-        img {
-            max-width: 100%;
-        }
-    }
+}
 </style>
