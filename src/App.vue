@@ -11,7 +11,8 @@ export default {
     DetailCard
   },
   created() {
-        this.getCards()
+        this.getCards();
+        this.getArchetypes();
     },
     methods: {
         getCards() {
@@ -21,7 +22,11 @@ export default {
             });
         },
         getArchetypes() {
-            
+            axios.get(store.apiArchetypesUrl).then((response) => {
+              for (let i = 0; i < 10; i++) {
+                store.archetypesList.push(response.data[i]);
+              }
+            });
         }
     }
 }
